@@ -27,10 +27,18 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
+			format++;
+
 			switch(*format)
 			{
 				case "c":
-
+					char c = va_arg(args, char);
+					write(1, &c, 1);
+                        		charcount++;
+				case "s":
+				case "%":
+				default:
+					break;
 			}
 		}
 	}
